@@ -59,6 +59,8 @@ class Provider(BaseProvider):
         payload = self._post(data=self._create_payload("dns-domains-list", ""))
         domains = payload["response"]["data"]["domain"]
         for record in domains:
+            print("DBG: self.domain:", self.domain)
+            print("DBG: record:", record)
             if record["name"] == self.domain:
                 self.domain_id = record["name"]
                 break
